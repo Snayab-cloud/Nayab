@@ -3,3 +3,7 @@ cart:
 
 catalogue:
 	@sh components/catalogue.sh
+
+frontend:
+	@sh components/frontend.sh
+
