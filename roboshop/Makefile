@@ -1,11 +1,11 @@
-common
+common:
 	@sh components/common.sh
-cart:	common
+cart: common
 	@sh components/cart.sh
 
-catalogue:	common
+catalogue: common
 	@sh components/catalogue.sh
 
-frontend:	common
+frontend: common
 	@sh components/frontend.sh
 
