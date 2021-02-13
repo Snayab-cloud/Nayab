@@ -2,7 +2,7 @@
 
 COMPONENT=frontend
 
-source common.sh
+source components/common.sh
 
 print "Installing nginx"
 #yum install nginx -y
