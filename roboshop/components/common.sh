@@ -7,5 +7,5 @@ USER_ID=$(id -u)
 #fi
 
 print() {
-  echo -e "\e[1m $(data +%c) \e[35m$(hostname)\e[0m \e[1;36m$(COMPONENT) :: $1"
+  echo -e "\e[1m $(data +%c) \e[35m$(hostname)\e[0m \e[1;36m$(COMPONENT)\e[0m :: $1"
 }
