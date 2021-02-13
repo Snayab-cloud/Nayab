@@ -1,5 +1,7 @@
 #!/bin/bash
 
+component=$1
+
 if [ -z "${component}"]; then
   echo "Need a Input of component name"
   exit 1
