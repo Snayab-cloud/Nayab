@@ -5,12 +5,12 @@ help:
 common:
 	@sh components/common.sh
 
-cart: common
+cart: common ## Install cart component
 	@sh components/cart.sh
 
-catalogue: common
+catalogue: common ## Install catalogue component
 	@sh components/catalogue.sh
 
-frontend: common
+frontend: common ## Install frontend component
 	@sh components/frontend.sh
 
