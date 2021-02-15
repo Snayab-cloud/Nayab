@@ -24,9 +24,9 @@ stat $?
 
 print "Setup Nginx config for Roboshp" "mv localhost.conf /etc/nginx/default.d/roboshop.conf"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 
 print "Starting nginx service" "systemctl enable nginx"
-exit
 systemctl enable nginx
 systemctl start nginx
 stat $?
