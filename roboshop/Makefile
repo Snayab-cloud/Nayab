@@ -12,5 +12,5 @@ catalogue: common ## Install catalogue component
 	@sh components/catalogue.sh
 
 frontend: common ## Install frontend component
-	@sh components/frontend.sh
+	@sh components/front.sh
 
