@@ -11,7 +11,7 @@ STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}"
 
 if [ "$STATE" != "running" ]; then
 aws ec2 run-instances --launch-template LaunchTemplateId=lt-0835ecf0be1ed2f76 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]"
-sleep 15
+sleep 10
 fi
 
 IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
