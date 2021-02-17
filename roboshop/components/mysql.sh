@@ -25,8 +25,7 @@ print "Grab Default MySQL password" "grep temp /var/log/mysqld.log"
 DEFAULT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
 stat $?
 
-echo DEFAULT_PASSWORD=$DEFAULT_PASSWORD
-
+echo "show databases" ; mysql -uroot -ppassword
 print "Reset MySQL password"
 mysql --connect-expired-password -uroot -p"${DEFAULT_PASSWORD}" <<EOF
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'Default_Roboshop*999';
