@@ -23,6 +23,8 @@ stat $?
 print "Install NodeJS Dependencies" "npm install"
 npm install --unsafe-perm
 stat $?
+chown roboshop:roboshop /home/roboshop -R
+
 
 print "Update systemD script for cart" "sed -i -e 's/MONGO_DNSNAME/mongodb-ss.shaik.cf' /home/roboshop/cart/systemd.service && mv /home/roboshop/cart/systemd.service
 /etc/systemd/system/cart.service"
