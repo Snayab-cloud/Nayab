@@ -28,7 +28,7 @@ stat $?
 
 
 print "Update SystemD script for shipping" "sed -i -e 's/CART_ENDPOINT/cart-ss.shaik.cf/' -e 's/DBHOST/mysql-ss.shaik.cf/' /home/roboshop/shipping/systemd.service"
-sed -i -e 's/CART_ENDPOINT/cart-ss.shaik.cf/' -e 's/DBHOST/mysql-ss.shaik.cf/' /home/roboshop/shipping/systemd.service
+sed -i -e 's/CARTENDPOINT/cart-ss.shaik.cf/' -e 's/DBHOST/mysql-ss.shaik.cf/' /home/roboshop/shipping/systemd.service
 stat $?
 
 print "Start shipping service" "mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service && systemctl daemon-reload && systemctl start shipping && systemctl enable shipping"
