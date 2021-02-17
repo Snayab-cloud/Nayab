@@ -29,6 +29,12 @@ mysql: common ## Install mysql component
 shipping: common ## Install shipping component
 	@sh components/shipping.sh
 
+rabbitmq: common ## Install rabbitmq component
+	@sh components/rabbitmq.sh
+
+payment: common ## Install payment component
+	@sh components/payment.sh
+
 
 
 
