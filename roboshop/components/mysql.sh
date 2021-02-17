@@ -27,7 +27,12 @@ stat $?
 
 echo DEFAULT_PASSWORD=$DEFAULT_PASSWORD
 
-
+print "Reset MySQL password"
+mysql -uroot -p"${DEFAULT_PASSWORD}" <<EOF
+uninstall plugin validate_password;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+EOF
+STAT $?
 
 
 # mysql_secure_installation
@@ -36,6 +41,4 @@ echo DEFAULT_PASSWORD=$DEFAULT_PASSWORD
 # mysql -u root -p
 
 
-#> uninstall plugin validate_password;
-#> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 
