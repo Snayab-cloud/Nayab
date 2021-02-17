@@ -26,6 +26,10 @@ user: common ## Install user component
 mysql: common ## Install mysql component
 	@sh components/mysql.sh
 
+shipping: common ## Install shipping component
+	@sh components/shipping.sh
+
+
 
 
 
