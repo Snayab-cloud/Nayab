@@ -26,9 +26,8 @@ stat $?
 chown roboshop:roboshop /home/roboshop -R
 
 
-print "Update systemD script for cart" "sed -i -e 's/MONGO_DNSNAME/mongodb-ss.shaik.cf' /home/roboshop/cart/systemd.service && mv /home/roboshop/cart/systemd.service
-/etc/systemd/system/cart.service"
-sed -i -e 's/MONGO_DNSNAME/mongodb-ss.shaik.cf/' /home/roboshop/cart/systemd.service && mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
+print "Update systemD script for cart" "sed -i -e 's/MONGO_DNSNAME/mongodb-ss.shaik.cf' /home/roboshop/cart/systemd.service && mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service"
+sed -i -e 's/REDIS_ENDPOINT/redis-ss.shaik.cf/' -e 's/CATALOGUE_ENDPOINT/catalogue-ss.shaik.cf/' /home/roboshop/cart/systemd.service && mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
 stat $?
 
 print "Start cart service" "systemctl daemon-reload && systemctl restart cart && systemctl enable cart"
