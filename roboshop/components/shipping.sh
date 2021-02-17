@@ -18,7 +18,7 @@ stat $?
 
 
 print "Extract Shipping code" "mkdir /home/roboshop/shipping && cd /home/roboshop/shipping && unzip /tmp/shipping.zip"
-mkdir /home/roboshop/shipping && cd /home/roboshop/shipping && unzip /tmp/shipping.zip
+mkdir -p /home/roboshop/shipping && cd /home/roboshop/shipping && unzip /tmp/shipping.zip
 stat $?
 
 print "Maven compile code" "mvn clean package && mv target/shipping-1.0.jar shipping.jar"
