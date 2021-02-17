@@ -25,12 +25,18 @@ cd /home/roboshop/payment && pip3 install -r requirements.txt
 stat $?
 exit
 
-Update the roboshop user and group id in payment.ini file.
+USER_ID=$(id -u roboshop)
+GROUP_ID=$(id -g roboshop)
+sed -i -e "/^uid/ c uid=${USER_ID}" -e "/^gid/ c gid=${GROUP_ID}" /home/roboshop/payment/payment.ini
+stat $?
 
-Setup the service
+chown roboshop:roboshop /home/roboshop -Roboshop
 
-# mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service
-# systemctl daemon-reload
-# systemctl enable payment
-# systemctl start payment
+print "Update systemD script for payment" 'sed -i -e "s/CARTHOST/cart-ss.shaik.cf/" -e "s/USERHOST/user-ss.shaik.cf/" -e "s/AMQPHOST/rabbitmq-ss.shaik.cf/" /home/roboshop/payment/systemd.service'
+sed -i -e "s/CARTHOST/cart-ss.shaik.cf/" -e "s/USERHOST/user-ss.shaik.cf/" -e "s/AMQPHOST/rabbitmq-ss.shaik.cf/" /home/roboshop/payment/systemd.service
+statv $?
+
+print "Start payment service" "mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service && systemctl daemon-reload && systemctl enable payment && systemctl start payment"
+mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service && systemctl daemon-reload && systemctl enable payment && systemctl start payment
+stat $?
 
