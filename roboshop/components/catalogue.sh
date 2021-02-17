@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT=frontend
+COMPONENT=catalogue
 
 source components/common.sh
 
