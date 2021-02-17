@@ -17,13 +17,12 @@ curl -L -s -o /tmp/payment.zip "https://dev.azure.com/DevOps-Batches/f635c088-10
 stat $?
 
 print "Extracting payment code" "mkdir -p /home/roboshop/payment && cd /home/roboshop/payment && unzip /tmp/payment.zip"
-mkdir -p /home/roboshop/payment && cd /home/roboshop/payment && unzip /tmp/payment.zip
+mkdir -p /home/roboshop/payment && cd /home/roboshop/payment && unzip -o /tmp/payment.zip
 stat $?
 
 print "Install python dependencies" "cd /home/roboshop/payment && pip3 install -r requirements.txt"
 cd /home/roboshop/payment && pip3 install -r requirements.txt
 stat $?
-exit
 
 USER_ID=$(id -u roboshop)
 GROUP_ID=$(id -g roboshop)
